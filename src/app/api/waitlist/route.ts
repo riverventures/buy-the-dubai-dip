@@ -4,12 +4,8 @@ import { kv } from '@vercel/kv'
 const WAITLIST_KEY = 'waitlist_emails'
 
 async function getEmails(): Promise<string[]> {
-  try {
-    const data = await kv.get<string[]>(WAITLIST_KEY)
-    return data || []
-  } catch {
-    return []
-  }
+  const data = await kv.get<string[]>(WAITLIST_KEY)
+  return data || []
 }
 
 export async function POST(request: NextRequest) {
@@ -31,9 +27,9 @@ export async function POST(request: NextRequest) {
     await kv.set(WAITLIST_KEY, emails)
 
     return NextResponse.json({ message: `You're in. #${emails.length} on the list.` })
-  } catch (err) {
-    console.error('Waitlist POST error:', err)
-    return NextResponse.json({ error: 'Server error. Please try again.' }, { status: 500 })
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err)
+    return NextResponse.json({ error: 'Server error.', debug: msg }, { status: 500 })
   }
 }
 
@@ -41,8 +37,8 @@ export async function GET() {
   try {
     const emails = await getEmails()
     return NextResponse.json({ count: emails.length, emails })
-  } catch (err) {
-    console.error('Waitlist GET error:', err)
-    return NextResponse.json({ count: 0, emails: [] })
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err)
+    return NextResponse.json({ count: 0, emails: [], debug: msg })
   }
 }
