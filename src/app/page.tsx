@@ -15,13 +15,26 @@ export default function Home() {
       <header className="px-4 pt-4 pb-3 border-b border-border-dim">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="font-mono text-lg font-bold text-text-primary tracking-tight">
-                🇦🇪 Buy the Dubai Dip
-              </h1>
-              <p className="text-xs text-text-secondary font-mono mt-0.5">
-                UAE equities at historic discounts. The market panicked. The opportunity is here.
-              </p>
+            <div className="flex items-center gap-3">
+              <div>
+                <h1 className="font-mono text-lg font-bold text-text-primary tracking-tight">
+                  🇦🇪 Buy the Dubai Dip
+                </h1>
+                <p className="text-xs text-text-secondary font-mono mt-0.5">
+                  UAE equities at historic discounts. The market panicked. The opportunity is here.
+                </p>
+              </div>
+              <a
+                href="https://x.com/dubaidipxyz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 text-text-muted hover:text-text-primary transition-colors"
+                aria-label="Follow on X"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
             </div>
             <div className="hidden sm:flex gap-4 text-right">
               <div>
