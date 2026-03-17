@@ -21,6 +21,40 @@ const ratingColors: Record<string, string> = {
   poor: 'text-[#ef4444] border-[#ef4444]/30 bg-[#ef4444]/10',
 }
 
+function SolanaLogo() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 128 128" fill="currentColor" className="inline-block ml-1.5 opacity-80">
+      <path d="M22.49 97.34l16.26-17.1a3.64 3.64 0 012.64-1.13h81.74a1.82 1.82 0 011.32 3.08l-16.26 17.1a3.64 3.64 0 01-2.64 1.13H23.81a1.82 1.82 0 01-1.32-3.08z"/>
+      <path d="M22.49 27.58l16.26-17.1A3.64 3.64 0 0141.39 9.35h81.74a1.82 1.82 0 011.32 3.08l-16.26 17.1a3.64 3.64 0 01-2.64 1.13H23.81a1.82 1.82 0 01-1.32-3.08z"/>
+      <path d="M105.45 62.18l-16.26-17.1a3.64 3.64 0 00-2.64-1.13H4.81a1.82 1.82 0 00-1.32 3.08l16.26 17.1a3.64 3.64 0 002.64 1.13h81.74a1.82 1.82 0 001.32-3.08z"/>
+    </svg>
+  )
+}
+
+function KPIBadge({ kpi }: { kpi: { label: string; value: string; rating: string; tooltip: string } }) {
+  const [showTooltip, setShowTooltip] = useState(false)
+
+  return (
+    <span
+      className={`relative text-[10px] font-mono px-2 py-1 rounded border cursor-help ${ratingColors[kpi.rating]}`}
+      onMouseEnter={() => setShowTooltip(true)}
+      onMouseLeave={() => setShowTooltip(false)}
+      onClick={(e) => {
+        e.stopPropagation()
+        setShowTooltip(!showTooltip)
+      }}
+    >
+      {kpi.value ? `${kpi.label}: ${kpi.value}` : kpi.label}
+      {showTooltip && (
+        <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-[250px] bg-[#1a1a1a] text-[#e5e5e5] text-[11px] font-sans leading-relaxed p-2.5 rounded-md shadow-xl border border-white/10 z-50 animate-fade-in pointer-events-none">
+          {kpi.tooltip}
+          <span className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-[#1a1a1a]" />
+        </span>
+      )}
+    </span>
+  )
+}
+
 export default function AssetRow({ asset }: { asset: Asset }) {
   const [expanded, setExpanded] = useState(false)
 
@@ -30,7 +64,6 @@ export default function AssetRow({ asset }: { asset: Asset }) {
     const el = document.getElementById('waitlist')
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' })
-      // Brief highlight effect
       el.classList.add('ring-2', 'ring-accent')
       setTimeout(() => el.classList.remove('ring-2', 'ring-accent'), 2000)
     }
@@ -86,15 +119,10 @@ export default function AssetRow({ asset }: { asset: Asset }) {
             </div>
           </div>
 
-          {/* Balance Sheet KPIs */}
+          {/* Balance Sheet KPIs with Tooltips */}
           <div className="mt-3 flex flex-wrap gap-2">
             {asset.balanceSheetHighlights.map((kpi, i) => (
-              <span
-                key={i}
-                className={`text-[10px] font-mono px-2 py-1 rounded border ${ratingColors[kpi.rating]}`}
-              >
-                {kpi.value ? `${kpi.label}: ${kpi.value}` : kpi.label}
-              </span>
+              <KPIBadge key={i} kpi={kpi} />
             ))}
           </div>
 
@@ -118,21 +146,22 @@ export default function AssetRow({ asset }: { asset: Asset }) {
           {/* Buy Buttons */}
           <div className="mt-3 flex gap-3">
             <a
-              href="https://www.interactivebrokers.com/"
+              href={asset.fiatUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 text-center font-mono text-sm px-4 py-2 rounded border border-text-secondary text-text-secondary hover:bg-bg-secondary hover:text-text-primary transition-colors"
             >
-              Buy with Fiat
+              Buy on {asset.exchange}
             </a>
             <button
               onClick={(e) => {
                 e.stopPropagation()
                 scrollToWaitlist()
               }}
-              className="flex-1 relative text-center font-mono text-sm px-4 py-2 rounded bg-accent hover:bg-accent/90 text-black font-semibold transition-colors"
+              className="flex-1 relative text-center font-mono text-sm px-4 py-2 rounded bg-accent hover:bg-accent/90 text-black font-semibold transition-colors inline-flex items-center justify-center"
             >
               Buy with USDC on Solana
+              <SolanaLogo />
               <span className="absolute -top-2 -right-2 text-[9px] bg-bg-primary text-accent border border-accent rounded-full px-1.5 py-0.5">
                 Coming soon
               </span>
