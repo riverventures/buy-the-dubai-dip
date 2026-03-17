@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Asset } from '@/data/assets'
+import { Asset, AED_TO_USD, formatUSD, formatUSDbn } from '@/data/assets'
 import Sparkline from './Sparkline'
 
 const sectorColors: Record<string, string> = {
@@ -15,10 +15,26 @@ const sectorColors: Record<string, string> = {
   'Investment': 'bg-indigo-900/50 text-indigo-300',
 }
 
+const ratingColors: Record<string, string> = {
+  good: 'text-[#10b981] border-[#10b981]/30 bg-[#10b981]/10',
+  neutral: 'text-[#f59e0b] border-[#f59e0b]/30 bg-[#f59e0b]/10',
+  poor: 'text-[#ef4444] border-[#ef4444]/30 bg-[#ef4444]/10',
+}
+
 export default function AssetRow({ asset }: { asset: Asset }) {
   const [expanded, setExpanded] = useState(false)
 
   const sectorClass = sectorColors[asset.sector] || 'bg-gray-900/50 text-gray-300'
+
+  function scrollToWaitlist() {
+    const el = document.getElementById('waitlist')
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
+      // Brief highlight effect
+      el.classList.add('ring-2', 'ring-accent')
+      setTimeout(() => el.classList.remove('ring-2', 'ring-accent'), 2000)
+    }
+  }
 
   return (
     <div className="border-b border-border-dim">
@@ -34,7 +50,10 @@ export default function AssetRow({ asset }: { asset: Asset }) {
         </div>
         <span className="text-[10px] text-text-muted font-mono">{asset.exchange}</span>
         <Sparkline data={asset.sparklineData} />
-        <span className="font-mono text-sm text-text-primary text-right">{asset.currentPrice.toFixed(2)}</span>
+        <div className="text-right">
+          <span className="font-mono text-sm text-text-primary">{asset.currentPrice.toFixed(2)}</span>
+          <span className="font-mono text-[9px] text-text-muted block">{formatUSD(asset.currentPrice)}</span>
+        </div>
         <span className="font-mono text-sm text-loss text-right font-semibold">{asset.drawdownPct.toFixed(1)}%</span>
         <span className="font-mono text-[11px] text-text-secondary text-right">{asset.covidDrawdownPct.toFixed(1)}%</span>
         <span className="text-text-muted text-xs">{expanded ? '−' : '+'}</span>
@@ -49,22 +68,32 @@ export default function AssetRow({ asset }: { asset: Asset }) {
             </div>
             <div>
               <span className="text-text-muted">Market Cap</span>
-              <div className="text-text-primary text-sm">AED {asset.marketCapB}B</div>
+              <div className="text-text-primary text-sm">
+                AED {asset.marketCapB}B{' '}
+                <span className="text-text-muted text-xs">({formatUSDbn(asset.marketCapB)})</span>
+              </div>
             </div>
             <div>
               <span className="text-text-muted">Revenue Growth</span>
-              <div className="text-gain text-sm">+{asset.revenueGrowthPct}%</div>
+              <div className="text-gain text-sm">+{asset.revenueGrowthPct}% {asset.revenueGrowthPeriod}</div>
             </div>
             <div>
               <span className="text-text-muted">Pre-crisis Price</span>
-              <div className="text-text-primary text-sm">AED {asset.preMarch1Price.toFixed(2)}</div>
+              <div className="text-text-primary text-sm">
+                AED {asset.preMarch1Price.toFixed(2)}{' '}
+                <span className="text-text-muted text-xs">/ {formatUSD(asset.preMarch1Price)}</span>
+              </div>
             </div>
           </div>
 
+          {/* Balance Sheet KPIs */}
           <div className="mt-3 flex flex-wrap gap-2">
-            {asset.balanceSheetHighlights.map((h, i) => (
-              <span key={i} className="text-[10px] font-mono bg-bg-secondary px-2 py-1 rounded text-text-secondary">
-                {h}
+            {asset.balanceSheetHighlights.map((kpi, i) => (
+              <span
+                key={i}
+                className={`text-[10px] font-mono px-2 py-1 rounded border ${ratingColors[kpi.rating]}`}
+              >
+                {kpi.value ? `${kpi.label}: ${kpi.value}` : kpi.label}
               </span>
             ))}
           </div>
@@ -84,6 +113,30 @@ export default function AssetRow({ asset }: { asset: Asset }) {
 
           <div className="mt-3">
             <Sparkline data={asset.sparklineData} width={300} height={50} />
+          </div>
+
+          {/* Buy Buttons */}
+          <div className="mt-3 flex gap-3">
+            <a
+              href="https://www.interactivebrokers.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 text-center font-mono text-sm px-4 py-2 rounded border border-text-secondary text-text-secondary hover:bg-bg-secondary hover:text-text-primary transition-colors"
+            >
+              Buy with Fiat
+            </a>
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                scrollToWaitlist()
+              }}
+              className="flex-1 relative text-center font-mono text-sm px-4 py-2 rounded bg-accent hover:bg-accent/90 text-black font-semibold transition-colors"
+            >
+              Buy with USDC on Solana
+              <span className="absolute -top-2 -right-2 text-[9px] bg-bg-primary text-accent border border-accent rounded-full px-1.5 py-0.5">
+                Coming soon
+              </span>
+            </button>
           </div>
         </div>
       )}

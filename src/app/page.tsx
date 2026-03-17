@@ -1,4 +1,4 @@
-import { getAverageDrawdown, getTotalMarketCapB } from '@/data/assets'
+import { getAverageDrawdown, getTotalMarketCapB, AED_TO_USD } from '@/data/assets'
 import AssetTable from '@/components/AssetTable'
 import WaitlistForm from '@/components/WaitlistForm'
 import ResilienceSection from '@/components/ResilienceSection'
@@ -7,6 +7,7 @@ import DisclaimerBanner from '@/components/DisclaimerBanner'
 export default function Home() {
   const avgDrawdown = getAverageDrawdown()
   const totalMcap = getTotalMarketCapB()
+  const totalMcapUSD = (totalMcap * AED_TO_USD).toFixed(1)
 
   return (
     <main className="min-h-screen pb-16">
@@ -29,7 +30,10 @@ export default function Home() {
               </div>
               <div>
                 <div className="text-xs text-text-muted font-mono">Total Mkt Cap</div>
-                <div className="font-mono text-lg text-text-primary font-bold">AED {totalMcap}B</div>
+                <div className="font-mono text-lg text-text-primary font-bold">
+                  AED {totalMcap}B
+                </div>
+                <div className="font-mono text-xs text-text-muted">(${totalMcapUSD}B)</div>
               </div>
             </div>
           </div>
@@ -43,6 +47,7 @@ export default function Home() {
             <div className="flex-1 bg-bg-secondary rounded-sm p-2">
               <div className="text-[10px] text-text-muted font-mono">Total Mkt Cap</div>
               <div className="font-mono text-base text-text-primary font-bold">AED {totalMcap}B</div>
+              <div className="font-mono text-[10px] text-text-muted">(${totalMcapUSD}B)</div>
             </div>
           </div>
         </div>
@@ -64,7 +69,7 @@ export default function Home() {
       </section>
 
       {/* Waitlist */}
-      <section className="px-4 py-3">
+      <section id="waitlist" className="px-4 py-3 scroll-mt-4 transition-all duration-500">
         <div className="max-w-5xl mx-auto">
           <WaitlistForm />
         </div>
