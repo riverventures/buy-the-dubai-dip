@@ -1,7 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { kv } from '@vercel/kv'
 
-const WAITLIST_KEY = 'waitlist:emails'
+const WAITLIST_KEY = 'waitlist_emails'
+
+async function getEmails(): Promise<string[]> {
+  try {
+    const data = await kv.get<string[]>(WAITLIST_KEY)
+    return data || []
+  } catch {
+    return []
+  }
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,17 +21,16 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Valid email required.' }, { status: 400 })
     }
 
-    // Check if already registered
-    const isMember = await kv.sismember(WAITLIST_KEY, email)
-    if (isMember) {
+    const emails = await getEmails()
+
+    if (emails.includes(email)) {
       return NextResponse.json({ message: "You're already on the list." })
     }
 
-    // Add to set
-    await kv.sadd(WAITLIST_KEY, email)
-    const count = await kv.scard(WAITLIST_KEY)
+    emails.push(email)
+    await kv.set(WAITLIST_KEY, emails)
 
-    return NextResponse.json({ message: `You're in. #${count} on the list.` })
+    return NextResponse.json({ message: `You're in. #${emails.length} on the list.` })
   } catch (err) {
     console.error('Waitlist POST error:', err)
     return NextResponse.json({ error: 'Server error. Please try again.' }, { status: 500 })
@@ -31,9 +39,8 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   try {
-    const count = await kv.scard(WAITLIST_KEY)
-    const emails = await kv.smembers(WAITLIST_KEY)
-    return NextResponse.json({ count, emails })
+    const emails = await getEmails()
+    return NextResponse.json({ count: emails.length, emails })
   } catch (err) {
     console.error('Waitlist GET error:', err)
     return NextResponse.json({ count: 0, emails: [] })
