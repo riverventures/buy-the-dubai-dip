@@ -23,10 +23,24 @@ const ratingColors: Record<string, string> = {
 
 function SolanaLogo() {
   return (
-    <svg width="16" height="16" viewBox="0 0 128 128" fill="currentColor" className="inline-block ml-1.5 opacity-80">
-      <path d="M22.49 97.34l16.26-17.1a3.64 3.64 0 012.64-1.13h81.74a1.82 1.82 0 011.32 3.08l-16.26 17.1a3.64 3.64 0 01-2.64 1.13H23.81a1.82 1.82 0 01-1.32-3.08z"/>
-      <path d="M22.49 27.58l16.26-17.1A3.64 3.64 0 0141.39 9.35h81.74a1.82 1.82 0 011.32 3.08l-16.26 17.1a3.64 3.64 0 01-2.64 1.13H23.81a1.82 1.82 0 01-1.32-3.08z"/>
-      <path d="M105.45 62.18l-16.26-17.1a3.64 3.64 0 00-2.64-1.13H4.81a1.82 1.82 0 00-1.32 3.08l16.26 17.1a3.64 3.64 0 002.64 1.13h81.74a1.82 1.82 0 001.32-3.08z"/>
+    <svg width="16" height="16" viewBox="0 0 397.7 311.7" className="inline-block ml-1.5 opacity-90">
+      <defs>
+        <linearGradient id="sol-a" x1="360.88" y1="351.46" x2="141.21" y2="-69.29" gradientTransform="matrix(1 0 0 -1 0 314)" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#00FFA3"/>
+          <stop offset="1" stopColor="#DC1FFF"/>
+        </linearGradient>
+        <linearGradient id="sol-b" x1="264.83" y1="401.6" x2="45.16" y2="-19.15" gradientTransform="matrix(1 0 0 -1 0 314)" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#00FFA3"/>
+          <stop offset="1" stopColor="#DC1FFF"/>
+        </linearGradient>
+        <linearGradient id="sol-c" x1="312.55" y1="376.69" x2="92.88" y2="-44.06" gradientTransform="matrix(1 0 0 -1 0 314)" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#00FFA3"/>
+          <stop offset="1" stopColor="#DC1FFF"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#sol-a)" d="M64.6,237.9c2.4-2.4,5.7-3.8,9.2-3.8h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,237.9z"/>
+      <path fill="url(#sol-b)" d="M64.6,3.8C67.1,1.4,70.4,0,73.8,0h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,3.8z"/>
+      <path fill="url(#sol-c)" d="M333.1,120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8,0-8.7,7-4.6,11.1l62.7,62.7c2.4,2.4,5.7,3.8,9.2,3.8h317.4c5.8,0,8.7-7,4.6-11.1L333.1,120.1z"/>
     </svg>
   )
 }
