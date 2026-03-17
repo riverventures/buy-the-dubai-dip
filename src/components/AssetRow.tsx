@@ -86,9 +86,10 @@ export default function AssetRow({ asset }: { asset: Asset }) {
 
   return (
     <div className="border-b border-border-dim">
+      {/* Desktop row */}
       <button
         onClick={() => setExpanded(!expanded)}
-        className="w-full grid grid-cols-[1fr_auto_80px_70px_70px_80px_20px] items-center gap-2 px-3 py-1.5 hover:bg-bg-tertiary/50 transition-colors text-left"
+        className="hidden sm:grid w-full grid-cols-[1fr_auto_80px_70px_70px_80px_20px] items-center gap-2 px-3 py-1.5 hover:bg-bg-tertiary/50 transition-colors text-left"
       >
         <div className="flex items-center gap-2 min-w-0">
           <span className="font-mono text-sm text-text-primary truncate">{asset.name}</span>
@@ -111,9 +112,29 @@ export default function AssetRow({ asset }: { asset: Asset }) {
         <span className="text-text-muted text-xs">{expanded ? '−' : '+'}</span>
       </button>
 
+      {/* Mobile row */}
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="sm:hidden w-full grid grid-cols-[1fr_60px_60px_16px] items-center gap-1 px-2 py-2 hover:bg-bg-tertiary/50 transition-colors text-left"
+      >
+        <div className="min-w-0">
+          <span className="font-mono text-xs text-text-primary truncate block">{asset.name}</span>
+          <span className={`text-[9px] px-1 py-0.5 rounded font-mono inline-block mt-0.5 ${sectorClass}`}>
+            {asset.ticker}
+          </span>
+        </div>
+        <div className="text-right">
+          <span className="font-mono text-xs text-text-primary">
+            {asset.currency === 'USD' ? '$' : ''}{asset.currentPrice.toFixed(2)}
+          </span>
+        </div>
+        <span className="font-mono text-xs text-loss text-right font-semibold">{asset.drawdownPct.toFixed(1)}%</span>
+        <span className="text-text-muted text-[10px]">{expanded ? '−' : '+'}</span>
+      </button>
+
       {expanded && (
-        <div className="px-3 py-3 bg-bg-tertiary/30 border-t border-border-dim">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs font-mono">
+        <div className="px-2 sm:px-3 py-3 bg-bg-tertiary/30 border-t border-border-dim">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 text-xs font-mono">
             <div>
               <span className="text-text-muted">P/E Ratio</span>
               <div className="text-text-primary text-sm">{asset.pe}x</div>
@@ -152,15 +173,15 @@ export default function AssetRow({ asset }: { asset: Asset }) {
             ))}
           </div>
 
-          <div className="mt-3 grid grid-cols-2 gap-4">
+          <div className="mt-3 grid grid-cols-2 gap-2 sm:gap-4">
             <div className="bg-bg-secondary rounded p-2">
               <div className="text-[10px] text-text-muted mb-1">Current Drawdown</div>
-              <div className="text-2xl font-mono text-loss font-bold">{asset.drawdownPct.toFixed(1)}%</div>
+              <div className="text-xl sm:text-2xl font-mono text-loss font-bold">{asset.drawdownPct.toFixed(1)}%</div>
               <div className="text-[10px] text-text-muted">Since March 1, 2026</div>
             </div>
             <div className="bg-bg-secondary rounded p-2">
               <div className="text-[10px] text-text-muted mb-1">COVID Drawdown (2020)</div>
-              <div className="text-2xl font-mono text-text-secondary font-bold">{asset.covidDrawdownPct.toFixed(1)}%</div>
+              <div className="text-xl sm:text-2xl font-mono text-text-secondary font-bold">{asset.covidDrawdownPct.toFixed(1)}%</div>
               <div className="text-[10px] text-text-muted">Peak to trough</div>
             </div>
           </div>
@@ -170,12 +191,12 @@ export default function AssetRow({ asset }: { asset: Asset }) {
           </div>
 
           {/* Buy Buttons */}
-          <div className="mt-3 flex gap-3">
+          <div className="mt-3 flex flex-col sm:flex-row gap-2 sm:gap-3">
             <a
               href={asset.fiatUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 text-center font-mono text-sm px-4 py-2 rounded border border-text-secondary text-text-secondary hover:bg-bg-secondary hover:text-text-primary transition-colors"
+              className="flex-1 text-center font-mono text-xs sm:text-sm px-3 sm:px-4 py-2 rounded border border-text-secondary text-text-secondary hover:bg-bg-secondary hover:text-text-primary transition-colors"
             >
               Buy on {asset.exchange}
             </a>
@@ -184,7 +205,7 @@ export default function AssetRow({ asset }: { asset: Asset }) {
                 e.stopPropagation()
                 scrollToWaitlist()
               }}
-              className="flex-1 relative text-center font-mono text-sm px-4 py-2 rounded bg-accent hover:bg-accent/90 text-black font-semibold transition-colors inline-flex items-center justify-center"
+              className="flex-1 relative text-center font-mono text-xs sm:text-sm px-3 sm:px-4 py-2 rounded bg-accent hover:bg-accent/90 text-black font-semibold transition-colors inline-flex items-center justify-center"
             >
               Buy with USDC on Solana
               <SolanaLogo />
