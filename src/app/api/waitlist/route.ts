@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err)
     console.error('Waitlist POST error:', msg)
-    return NextResponse.json({ error: 'Server error.', debug: msg }, { status: 500 })
+    return NextResponse.json({ error: 'Server error. Please try again.' }, { status: 500 })
   } finally {
     redis.disconnect()
   }
@@ -42,12 +42,12 @@ export async function GET() {
   const redis = getRedis()
   try {
     await redis.connect()
-    const emails = await redis.smembers(WAITLIST_KEY)
-    return NextResponse.json({ count: emails.length, emails })
+    const count = await redis.scard(WAITLIST_KEY)
+    return NextResponse.json({ count })
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err)
     console.error('Waitlist GET error:', msg)
-    return NextResponse.json({ count: 0, emails: [], debug: msg })
+    return NextResponse.json({ count: 0 })
   } finally {
     redis.disconnect()
   }
