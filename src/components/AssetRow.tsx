@@ -13,6 +13,7 @@ const sectorColors: Record<string, string> = {
   'Conglomerate': 'bg-pink-900/50 text-pink-300',
   'Aviation': 'bg-sky-900/50 text-sky-300',
   'Investment': 'bg-indigo-900/50 text-indigo-300',
+  'ETF': 'bg-emerald-900/50 text-emerald-300',
 }
 
 const ratingColors: Record<string, string> = {
@@ -98,8 +99,12 @@ export default function AssetRow({ asset }: { asset: Asset }) {
         <span className="text-[10px] text-text-muted font-mono">{asset.exchange}</span>
         <Sparkline data={asset.sparklineData} />
         <div className="text-right">
-          <span className="font-mono text-sm text-text-primary">{asset.currentPrice.toFixed(2)}</span>
-          <span className="font-mono text-[9px] text-text-muted block">{formatUSD(asset.currentPrice)}</span>
+          <span className="font-mono text-sm text-text-primary">
+            {asset.currency === 'USD' ? '$' : ''}{asset.currentPrice.toFixed(2)}
+          </span>
+          {asset.currency === 'AED' && (
+            <span className="font-mono text-[9px] text-text-muted block">{formatUSD(asset.currentPrice)}</span>
+          )}
         </div>
         <span className="font-mono text-sm text-loss text-right font-semibold">{asset.drawdownPct.toFixed(1)}%</span>
         <span className="font-mono text-[11px] text-text-secondary text-right">{asset.covidDrawdownPct.toFixed(1)}%</span>
@@ -116,19 +121,26 @@ export default function AssetRow({ asset }: { asset: Asset }) {
             <div>
               <span className="text-text-muted">Market Cap</span>
               <div className="text-text-primary text-sm">
-                AED {asset.marketCapB}B{' '}
-                <span className="text-text-muted text-xs">({formatUSDbn(asset.marketCapB)})</span>
+                {asset.currency === 'USD' ? (
+                  `$${asset.marketCapB < 1 ? (asset.marketCapB * 1000).toFixed(0) + 'M' : asset.marketCapB + 'B'}`
+                ) : (
+                  <>AED {asset.marketCapB}B <span className="text-text-muted text-xs">({formatUSDbn(asset.marketCapB)})</span></>
+                )}
               </div>
             </div>
             <div>
               <span className="text-text-muted">Revenue Growth</span>
-              <div className="text-gain text-sm">+{asset.revenueGrowthPct}% {asset.revenueGrowthPeriod}</div>
+              <div className={`text-sm ${asset.revenueGrowthPct > 0 ? 'text-gain' : 'text-text-muted'}`}>
+                {asset.revenueGrowthPct > 0 ? `+${asset.revenueGrowthPct}%` : '—'} {asset.revenueGrowthPeriod}
+              </div>
             </div>
             <div>
               <span className="text-text-muted">Pre-crisis Price</span>
               <div className="text-text-primary text-sm">
-                AED {asset.preMarch1Price.toFixed(2)}{' '}
-                <span className="text-text-muted text-xs">/ {formatUSD(asset.preMarch1Price)}</span>
+                {asset.currency === 'USD' ? '$' : 'AED '}{asset.preMarch1Price.toFixed(2)}
+                {asset.currency === 'AED' && (
+                  <span className="text-text-muted text-xs"> / {formatUSD(asset.preMarch1Price)}</span>
+                )}
               </div>
             </div>
           </div>

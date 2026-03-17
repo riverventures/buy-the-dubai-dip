@@ -9,7 +9,8 @@ export interface Asset {
   name: string
   ticker: string
   sector: string
-  exchange: 'ADX' | 'DFM'
+  exchange: 'ADX' | 'DFM' | 'NASDAQ'
+  currency: 'AED' | 'USD'
   fiatUrl: string
   currentPrice: number
   preMarch1Price: number
@@ -44,10 +45,38 @@ export function formatUSDbn(aedB: number): string {
 // Final point matches currentPrice.
 export const assets: Asset[] = [
   {
+    name: 'iShares MSCI UAE ETF',
+    ticker: 'UAE',
+    sector: 'ETF',
+    exchange: 'NASDAQ',
+    currency: 'USD',
+    fiatUrl: 'https://www.ishares.com/us/products/264275/ishares-msci-uae-capped-etf',
+    currentPrice: 17.76,
+    preMarch1Price: 19.10,
+    drawdownPct: -7.0,
+    covidDrawdownPct: -38.5,
+    sparklineData: [
+      19.12, 19.05, 19.20, 19.15, 19.08, 19.25, 19.30, 19.18, 19.10, 19.22,
+      19.15, 19.05, 19.10, 19.18, 19.12, 19.08, 19.15, 19.10,
+      18.60, 18.20, 17.85, 17.50, 17.80, 17.90, 17.65, 17.45, 17.60, 17.70,
+      17.55, 17.80, 17.72, 17.68, 17.78, 17.75, 17.76
+    ],
+    pe: 8.2,
+    marketCapB: 0.04,
+    revenueGrowthPct: 0,
+    revenueGrowthPeriod: 'N/A (ETF)',
+    balanceSheetHighlights: [
+      { label: 'AUM', value: '$39M', rating: 'neutral', tooltip: 'Small fund by global ETF standards. Low AUM means wider spreads and less liquidity vs large-cap ETFs, but adequate for retail positions.' },
+      { label: 'Expense Ratio', value: '0.59%', rating: 'neutral', tooltip: 'Higher than broad market ETFs (SPY: 0.09%) but typical for single-country emerging market exposure. Comparable to EWZ (Brazil): 0.58%.' },
+      { label: 'Div Yield', value: '3.8%', rating: 'good', tooltip: 'Attractive yield reflecting high-dividend UAE equities (banks + real estate). Above S&P 500 yield (~1.3%) and most EM ETFs (~2.5%).' },
+    ],
+  },
+  {
     name: 'Emaar Properties',
     ticker: 'EMAAR',
     sector: 'Real Estate',
     exchange: 'DFM',
+    currency: 'AED',
     fiatUrl: 'https://www.dfm.ae/the-exchange/market-information/company/EMAAR/trading/trading-summary',
     currentPrice: 6.82,
     preMarch1Price: 10.45,
@@ -74,6 +103,7 @@ export const assets: Asset[] = [
     ticker: 'DAMAC',
     sector: 'Real Estate',
     exchange: 'DFM',
+    currency: 'AED',
     fiatUrl: 'https://www.dfm.ae/the-exchange/market-information/company/DAMAC/trading/trading-summary',
     currentPrice: 4.15,
     preMarch1Price: 6.90,
@@ -100,6 +130,7 @@ export const assets: Asset[] = [
     ticker: 'ALDAR',
     sector: 'Real Estate',
     exchange: 'ADX',
+    currency: 'AED',
     fiatUrl: 'https://www.adx.ae/main-market/company-profile/overview?symbols=ALDAR',
     currentPrice: 5.24,
     preMarch1Price: 7.80,
@@ -126,6 +157,7 @@ export const assets: Asset[] = [
     ticker: 'FAB',
     sector: 'Banking',
     exchange: 'ADX',
+    currency: 'AED',
     fiatUrl: 'https://www.adx.ae/main-market/company-profile/overview?symbols=FAB',
     currentPrice: 10.86,
     preMarch1Price: 15.20,
@@ -152,6 +184,7 @@ export const assets: Asset[] = [
     ticker: 'ENBD',
     sector: 'Banking',
     exchange: 'DFM',
+    currency: 'AED',
     fiatUrl: 'https://www.dfm.ae/the-exchange/market-information/company/ENBD/trading/trading-summary',
     currentPrice: 14.50,
     preMarch1Price: 21.00,
@@ -178,6 +211,7 @@ export const assets: Asset[] = [
     ticker: 'ADCB',
     sector: 'Banking',
     exchange: 'ADX',
+    currency: 'AED',
     fiatUrl: 'https://www.adx.ae/main-market/company-profile/overview?symbols=ADCB',
     currentPrice: 6.75,
     preMarch1Price: 9.50,
@@ -204,6 +238,7 @@ export const assets: Asset[] = [
     ticker: 'SALIK',
     sector: 'Infrastructure',
     exchange: 'DFM',
+    currency: 'AED',
     fiatUrl: 'https://www.dfm.ae/the-exchange/market-information/company/SALIK/trading/trading-summary',
     currentPrice: 3.18,
     preMarch1Price: 4.60,
@@ -230,6 +265,7 @@ export const assets: Asset[] = [
     ticker: 'DPW',
     sector: 'Logistics',
     exchange: 'DFM',
+    currency: 'AED',
     fiatUrl: 'https://www.dfm.ae/the-exchange/market-information/company/DPW/trading/trading-summary',
     currentPrice: 18.40,
     preMarch1Price: 26.50,
@@ -256,6 +292,7 @@ export const assets: Asset[] = [
     ticker: 'ADNOCDIST',
     sector: 'Energy',
     exchange: 'ADX',
+    currency: 'AED',
     fiatUrl: 'https://www.adx.ae/main-market/company-profile/overview?symbols=ADNOCDIST',
     currentPrice: 3.02,
     preMarch1Price: 4.10,
@@ -282,6 +319,7 @@ export const assets: Asset[] = [
     ticker: 'IHC',
     sector: 'Conglomerate',
     exchange: 'ADX',
+    currency: 'AED',
     fiatUrl: 'https://www.adx.ae/main-market/company-profile/overview?symbols=IHC',
     currentPrice: 185.00,
     preMarch1Price: 290.00,
@@ -308,6 +346,7 @@ export const assets: Asset[] = [
     ticker: 'DIB',
     sector: 'Banking',
     exchange: 'DFM',
+    currency: 'AED',
     fiatUrl: 'https://www.dfm.ae/the-exchange/market-information/company/DIB/trading/trading-summary',
     currentPrice: 5.10,
     preMarch1Price: 7.20,
@@ -334,6 +373,7 @@ export const assets: Asset[] = [
     ticker: 'AIRARABIA',
     sector: 'Aviation',
     exchange: 'DFM',
+    currency: 'AED',
     fiatUrl: 'https://www.dfm.ae/the-exchange/market-information/company/AIRARABIA/trading/trading-summary',
     currentPrice: 2.14,
     preMarch1Price: 3.50,
@@ -360,6 +400,7 @@ export const assets: Asset[] = [
     ticker: 'RAKPROP',
     sector: 'Real Estate',
     exchange: 'ADX',
+    currency: 'AED',
     fiatUrl: 'https://www.adx.ae/main-market/company-profile/overview?symbols=RAKPROP',
     currentPrice: 0.68,
     preMarch1Price: 1.15,
@@ -386,6 +427,7 @@ export const assets: Asset[] = [
     ticker: 'MULTIPLY',
     sector: 'Investment',
     exchange: 'ADX',
+    currency: 'AED',
     fiatUrl: 'https://www.adx.ae/main-market/company-profile/overview?symbols=MULTIPLY',
     currentPrice: 1.92,
     preMarch1Price: 3.10,
@@ -412,6 +454,7 @@ export const assets: Asset[] = [
     ticker: 'EMAARDEV',
     sector: 'Real Estate',
     exchange: 'DFM',
+    currency: 'AED',
     fiatUrl: 'https://www.dfm.ae/the-exchange/market-information/company/EMAARDEV/trading/trading-summary',
     currentPrice: 5.40,
     preMarch1Price: 8.75,
