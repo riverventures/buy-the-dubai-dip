@@ -21,8 +21,8 @@ export default function Home() {
                 <h1 className="font-mono text-lg font-bold text-text-primary tracking-tight">
                   🇦🇪 Buy the Dubai Dip
                 </h1>
-                <p className="text-xs text-text-secondary font-mono mt-0.5">
-                  UAE equities at historic discounts. The market panicked. The opportunity is here.
+                <p className="text-[11px] text-text-secondary/80 font-sans mt-1.5 max-w-2xl leading-relaxed">
+                  The investment thesis for the UAE does not rest on the absence of risk. No honest pitch for anywhere makes that promise. It rests on a demonstrated history of resilience, a uniquely diversified economic base, and a set of physical and financial connective assets that serve not just the Gulf but Asia, Africa, and Europe alike. That thesis has not changed. If anything, the stress test has clarified it.
                 </p>
               </div>
               <a

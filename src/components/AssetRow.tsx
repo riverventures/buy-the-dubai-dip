@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Asset, AED_TO_USD, formatUSD, formatUSDbn } from '@/data/assets'
+import { Asset, AED_TO_USD, formatUSD, formatUSDbn, formatMarketCap } from '@/data/assets'
 import Sparkline from './Sparkline'
 
 const sectorColors: Record<string, string> = {
@@ -74,6 +74,16 @@ export default function AssetRow({ asset }: { asset: Asset }) {
   const [expanded, setExpanded] = useState(false)
 
   const sectorClass = sectorColors[asset.sector] || 'bg-gray-900/50 text-gray-300'
+  const isGain = asset.drawdownPct > 0
+  const drawdownColor = isGain ? 'text-gain' : 'text-loss'
+  const drawdownLabel = isGain ? 'Current Gain' : 'Current Drawdown'
+  const drawdownDisplay = isGain
+    ? `+${asset.drawdownPct.toFixed(1)}%`
+    : `${asset.drawdownPct.toFixed(1)}%`
+
+  const marketCapDisplay = asset.currency === 'USD'
+    ? (asset.marketCapB < 1 ? `$${(asset.marketCapB * 1000).toFixed(0)}M` : `$${asset.marketCapB.toFixed(1)}B`)
+    : `${asset.marketCapB.toFixed(1)}B`
 
   function scrollToWaitlist() {
     const el = document.getElementById('waitlist')
@@ -89,7 +99,7 @@ export default function AssetRow({ asset }: { asset: Asset }) {
       {/* Desktop row */}
       <button
         onClick={() => setExpanded(!expanded)}
-        className="hidden sm:grid w-full grid-cols-[1fr_auto_80px_70px_70px_80px_20px] items-center gap-2 px-3 py-1.5 hover:bg-bg-tertiary/50 transition-colors text-left"
+        className="hidden sm:grid w-full grid-cols-[1fr_auto_80px_70px_80px_70px_80px_20px] items-center gap-2 px-3 py-1.5 hover:bg-bg-tertiary/50 transition-colors text-left"
       >
         <div className="flex items-center gap-2 min-w-0">
           <span className="font-mono text-sm text-text-primary truncate">{asset.name}</span>
@@ -107,7 +117,8 @@ export default function AssetRow({ asset }: { asset: Asset }) {
             <span className="font-mono text-[9px] text-text-muted block">{formatUSD(asset.currentPrice)}</span>
           )}
         </div>
-        <span className="font-mono text-sm text-loss text-right font-semibold">{asset.drawdownPct.toFixed(1)}%</span>
+        <span className="font-mono text-[11px] text-text-secondary text-right">{marketCapDisplay}</span>
+        <span className={`font-mono text-sm ${drawdownColor} text-right font-semibold`}>{drawdownDisplay}</span>
         <span className="font-mono text-[11px] text-text-secondary text-right">{asset.covidDrawdownPct.toFixed(1)}%</span>
         <span className="text-text-muted text-xs">{expanded ? '−' : '+'}</span>
       </button>
@@ -128,7 +139,7 @@ export default function AssetRow({ asset }: { asset: Asset }) {
             {asset.currency === 'USD' ? '$' : ''}{asset.currentPrice.toFixed(2)}
           </span>
         </div>
-        <span className="font-mono text-xs text-loss text-right font-semibold">{asset.drawdownPct.toFixed(1)}%</span>
+        <span className={`font-mono text-xs ${drawdownColor} text-right font-semibold`}>{drawdownDisplay}</span>
         <span className="text-text-muted text-[10px]">{expanded ? '−' : '+'}</span>
       </button>
 
@@ -175,8 +186,8 @@ export default function AssetRow({ asset }: { asset: Asset }) {
 
           <div className="mt-3 grid grid-cols-2 gap-2 sm:gap-4">
             <div className="bg-bg-secondary rounded p-2">
-              <div className="text-[10px] text-text-muted mb-1">Current Drawdown</div>
-              <div className="text-xl sm:text-2xl font-mono text-loss font-bold">{asset.drawdownPct.toFixed(1)}%</div>
+              <div className="text-[10px] text-text-muted mb-1">{drawdownLabel}</div>
+              <div className={`text-xl sm:text-2xl font-mono ${drawdownColor} font-bold`}>{drawdownDisplay}</div>
               <div className="text-[10px] text-text-muted">Since March 1, 2026</div>
             </div>
             <div className="bg-bg-secondary rounded p-2">
