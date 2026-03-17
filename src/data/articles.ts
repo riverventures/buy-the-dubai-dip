@@ -30,7 +30,7 @@ export const articles: Article[] = [
     date: 'March 2, 2026',
     quote: "Each succession was built on the same promise: a stable, open alternative to wherever the region's last crisis struck.",
     url: 'https://www.reuters.com/world/middle-east/how-dubais-safe-haven-status-is-being-put-test-2026-03-02/',
-    thumbnail: 'https://media.istockphoto.com/id/2217498324/photo/aerial-view-of-dubai-skyline-at-sunset.jpg',
+    thumbnail: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=400&fit=crop',
   },
   {
     title: "Iran 'Cannot Be Allowed to Hold Global Economy Hostage'",

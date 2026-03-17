@@ -37,9 +37,12 @@ export default function XHighlights() {
             {/* Author row */}
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-bg-tertiary flex items-center justify-center text-text-muted text-xs font-mono font-bold">
-                  {tweet.author.charAt(0)}
-                </div>
+                <img
+                  src={tweet.avatar}
+                  alt={tweet.author}
+                  className="w-8 h-8 rounded-full object-cover bg-bg-tertiary"
+                  loading="lazy"
+                />
                 <div>
                   <div className="text-sm font-mono text-text-primary leading-tight">{tweet.author}</div>
                   <div className="text-[10px] font-mono text-text-muted">{tweet.handle}</div>
