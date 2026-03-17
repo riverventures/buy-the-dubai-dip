@@ -3,6 +3,7 @@ import AssetTable from '@/components/AssetTable'
 import WaitlistForm from '@/components/WaitlistForm'
 import ResilienceSection from '@/components/ResilienceSection'
 import DisclaimerBanner from '@/components/DisclaimerBanner'
+import XHighlights from '@/components/XHighlights'
 
 export default function Home() {
   const avgDrawdown = getAverageDrawdown()
@@ -92,6 +93,13 @@ export default function Home() {
       <section className="px-4 py-3">
         <div className="max-w-5xl mx-auto">
           <ResilienceSection />
+        </div>
+      </section>
+
+      {/* X Highlights */}
+      <section className="px-4 py-3">
+        <div className="max-w-5xl mx-auto">
+          <XHighlights />
         </div>
       </section>
 
