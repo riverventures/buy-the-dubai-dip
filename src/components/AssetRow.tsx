@@ -74,12 +74,9 @@ export default function AssetRow({ asset }: { asset: Asset }) {
   const [expanded, setExpanded] = useState(false)
 
   const sectorClass = sectorColors[asset.sector] || 'bg-gray-900/50 text-gray-300'
-  const isGain = asset.drawdownPct > 0
-  const drawdownColor = isGain ? 'text-gain' : 'text-loss'
-  const drawdownLabel = isGain ? 'Current Gain' : 'Current Drawdown'
-  const drawdownDisplay = isGain
-    ? `+${asset.drawdownPct.toFixed(1)}%`
-    : `${asset.drawdownPct.toFixed(1)}%`
+  const drawdownColor = 'text-loss'
+  const drawdownLabel = 'Current Drawdown'
+  const drawdownDisplay = `${asset.drawdownPct.toFixed(1)}%`
 
   const marketCapDisplay = asset.currency === 'USD'
     ? (asset.marketCapB < 1 ? `$${(asset.marketCapB * 1000).toFixed(0)}M` : `$${asset.marketCapB.toFixed(1)}B`)
