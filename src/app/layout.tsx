@@ -11,11 +11,20 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://dubaidip.xyz',
     siteName: 'Buy the Dubai Dip',
+    images: [
+      {
+        url: 'https://dubaidip.xyz/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Buy the Dubai Dip - UAE equities at historic discounts, tokenized on Solana',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Buy the Dubai Dip',
     description: 'UAE equities at historic discounts. Track the drawdown. Buy the recovery.',
+    images: ['https://dubaidip.xyz/og-image.png'],
   },
   icons: {
     icon: '/favicon.svg',
