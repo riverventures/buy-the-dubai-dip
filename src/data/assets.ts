@@ -332,15 +332,15 @@ export const assets: Asset[] = [
     exchange: 'DFM',
     currency: 'AED',
     fiatUrl: 'https://www.dfm.ae/the-exchange/market-information/company/SALIK/trading/trading-summary',
-    currentPrice: 5.40,
+    currentPrice: 5.21,
     preMarch1Price: 5.90,
-    drawdownPct: -8.5,
+    drawdownPct: -11.7,
     covidDrawdownPct: -25.0,
     sparklineData: [
       5.85, 5.86, 5.87, 5.88, 5.87, 5.88, 5.89, 5.88, 5.89, 5.90,
       5.89, 5.90, 5.90, 5.89, 5.90, 5.90, 5.89, 5.90,
       5.80, 5.72, 5.65, 5.58, 5.52, 5.48, 5.44, 5.40, 5.38,
-      5.36, 5.34, 5.32, 5.30, 5.29, 5.28, 5.28, 5.40
+      5.36, 5.34, 5.32, 5.30, 5.29, 5.28, 5.28, 5.21
     ],
     pe: 18.5,
     marketCapB: 38.0,
@@ -413,15 +413,15 @@ export const assets: Asset[] = [
     exchange: 'ADX',
     currency: 'AED',
     fiatUrl: 'https://www.adx.ae/main-market/company-profile/overview?symbols=IHC',
-    currentPrice: 399.60,
+    currentPrice: 391.00,
     preMarch1Price: 450.00,
-    drawdownPct: -11.2,
+    drawdownPct: -13.1,
     covidDrawdownPct: -18.0,
     sparklineData: [
       420, 430, 415, 440, 425, 445, 435, 455, 440, 448,
       460, 445, 455, 450, 440, 455, 445, 450,
       420, 400, 415, 390, 405, 385, 395, 380, 392,
-      385, 395, 388, 393, 390, 392, 391, 399.60
+      385, 395, 388, 393, 390, 392, 391, 391.00
     ],
     pe: 22.4,
     marketCapB: 730.0,
