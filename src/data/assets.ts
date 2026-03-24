@@ -62,15 +62,15 @@ export const assets: Asset[] = [
     exchange: 'NASDAQ',
     currency: 'USD',
     fiatUrl: 'https://www.ishares.com/us/products/264275/ishares-msci-uae-capped-etf',
-    currentPrice: 17.45,
+    currentPrice: 18.64,
     preMarch1Price: 19.10,
-    drawdownPct: -8.6,
+    drawdownPct: -2.4,
     covidDrawdownPct: -38.5,
     sparklineData: [
       18.50, 18.55, 18.60, 18.65, 18.70, 18.75, 18.80, 18.85, 18.88, 18.92,
       18.95, 18.98, 19.00, 19.03, 19.05, 19.07, 19.08, 19.10,
       18.90, 18.70, 18.50, 18.30, 18.15, 18.05, 17.98, 17.92, 17.88,
-      17.85, 17.83, 17.81, 17.80, 17.79, 17.78, 17.77, 17.45
+      17.85, 17.83, 17.81, 17.80, 17.79, 17.78, 17.77, 18.64
     ],
     pe: 8.2,
     marketCapB: 0.04,
@@ -143,15 +143,15 @@ export const assets: Asset[] = [
     exchange: 'DFM',
     currency: 'AED',
     fiatUrl: 'https://www.dfm.ae/the-exchange/market-information/company/EMIRATESNBD/trading/trading-summary',
-    currentPrice: 27.55,
+    currentPrice: 26.20,
     preMarch1Price: 35.00,
-    drawdownPct: -21.3,
+    drawdownPct: -25.1,
     covidDrawdownPct: -42.1,
     sparklineData: [
       29.50, 30.00, 30.80, 31.40, 31.80, 32.50, 33.00, 33.50, 34.00, 34.50,
       34.80, 35.00, 35.20, 34.80, 35.10, 35.00, 34.90, 35.00,
       31.00, 28.50, 29.50, 28.00, 27.50, 28.20, 27.30, 27.00, 26.80,
-      27.10, 26.70, 26.60, 26.55, 26.52, 26.50, 26.50, 27.55
+      27.10, 26.70, 26.60, 26.55, 26.52, 26.50, 26.50, 26.20
     ],
     pe: 6.2,
     marketCapB: 75.0,
@@ -440,15 +440,15 @@ export const assets: Asset[] = [
     exchange: 'ADX',
     currency: 'AED',
     fiatUrl: 'https://www.adx.ae/main-market/company-profile/overview?symbols=RAKPROP',
-    currentPrice: 1.49,
+    currentPrice: 1.33,
     preMarch1Price: 1.80,
-    drawdownPct: -17.2,
+    drawdownPct: -26.1,
     covidDrawdownPct: -58.3,
     sparklineData: [
       1.55, 1.60, 1.58, 1.65, 1.62, 1.70, 1.68, 1.75, 1.72, 1.78,
       1.80, 1.76, 1.82, 1.78, 1.80, 1.76, 1.80, 1.80,
       1.60, 1.45, 1.50, 1.38, 1.42, 1.35, 1.38, 1.34, 1.36,
-      1.33, 1.35, 1.34, 1.33, 1.34, 1.33, 1.33, 1.49
+      1.33, 1.35, 1.34, 1.33, 1.34, 1.33, 1.33, 1.33
     ],
     pe: 3.8,
     marketCapB: 3.0,
