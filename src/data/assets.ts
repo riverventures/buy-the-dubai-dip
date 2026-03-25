@@ -89,15 +89,15 @@ export const assets: Asset[] = [
     exchange: 'DFM',
     currency: 'AED',
     fiatUrl: 'https://www.dfm.ae/the-exchange/market-information/company/EMAAR/trading/trading-summary',
-    currentPrice: 11.95,
+    currentPrice: 11.40,
     preMarch1Price: 15.00,
-    drawdownPct: -20.3,
+    drawdownPct: -24.0,
     covidDrawdownPct: -62.1,
     sparklineData: [
       12.80, 13.00, 13.15, 13.40, 13.55, 13.80, 14.10, 14.30, 14.50, 14.65,
       14.80, 14.60, 14.90, 15.00, 14.85, 14.70, 14.95, 15.00,
       14.10, 13.20, 12.60, 12.80, 12.20, 11.90, 11.70, 11.95, 11.60,
-      11.50, 11.55, 11.48, 11.52, 11.47, 11.46, 11.45, 11.95
+      11.50, 11.55, 11.48, 11.52, 11.47, 11.46, 11.45, 11.40
     ],
     pe: 5.8,
     marketCapB: 94.0,
@@ -170,15 +170,15 @@ export const assets: Asset[] = [
     exchange: 'DFM',
     currency: 'AED',
     fiatUrl: 'https://www.dfm.ae/the-exchange/market-information/company/EMAARDEV/trading/trading-summary',
-    currentPrice: 12.65,
+    currentPrice: 14.00,
     preMarch1Price: 20.70,
-    drawdownPct: -38.9,
+    drawdownPct: -32.4,
     covidDrawdownPct: -67.4,
     sparklineData: [
       14.50, 15.00, 15.60, 16.20, 16.80, 17.30, 17.90, 18.50, 19.00, 19.50,
       19.90, 20.20, 20.50, 20.65, 20.70, 20.60, 20.50, 20.70,
       18.00, 15.80, 14.50, 15.20, 14.00, 13.60, 14.10, 13.50, 13.80,
-      13.40, 13.55, 13.35, 13.40, 13.32, 13.30, 13.30, 12.65
+      13.40, 13.55, 13.35, 13.40, 13.32, 13.30, 13.30, 14.00
     ],
     pe: 4.5,
     marketCapB: 53.0,
@@ -332,15 +332,15 @@ export const assets: Asset[] = [
     exchange: 'DFM',
     currency: 'AED',
     fiatUrl: 'https://www.dfm.ae/the-exchange/market-information/company/SALIK/trading/trading-summary',
-    currentPrice: 5.21,
+    currentPrice: 5.41,
     preMarch1Price: 5.90,
-    drawdownPct: -11.7,
+    drawdownPct: -8.3,
     covidDrawdownPct: -25.0,
     sparklineData: [
       5.85, 5.86, 5.87, 5.88, 5.87, 5.88, 5.89, 5.88, 5.89, 5.90,
       5.89, 5.90, 5.90, 5.89, 5.90, 5.90, 5.89, 5.90,
       5.80, 5.72, 5.65, 5.58, 5.52, 5.48, 5.44, 5.40, 5.38,
-      5.36, 5.34, 5.32, 5.30, 5.29, 5.28, 5.28, 5.21
+      5.36, 5.34, 5.32, 5.30, 5.29, 5.28, 5.28, 5.41
     ],
     pe: 18.5,
     marketCapB: 38.0,
