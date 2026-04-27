@@ -89,15 +89,15 @@ export const assets: Asset[] = [
     exchange: 'DFM',
     currency: 'AED',
     fiatUrl: 'https://www.dfm.ae/the-exchange/market-information/company/EMAAR/trading/trading-summary',
-    currentPrice: 12.4,
+    currentPrice: 12.58,
     preMarch1Price: 15.00,
-    drawdownPct: -17.3,
+    drawdownPct: -16.1,
     covidDrawdownPct: -62.1,
     sparklineData: [
       12.80, 13.00, 13.15, 13.40, 13.55, 13.80, 14.10, 14.30, 14.50, 14.65,
       14.80, 14.60, 14.90, 15.00, 14.85, 14.70, 14.95, 15.00,
       14.10, 13.20, 12.60, 12.80, 12.20, 11.90, 11.70, 11.95, 11.60,
-      11.50, 11.55, 11.48, 11.52, 11.47, 11.46, 11.45, 12.4
+      11.50, 11.55, 11.48, 11.52, 11.47, 11.46, 11.45, 12.58
     ],
     pe: 5.8,
     marketCapB: 94.0,
@@ -143,15 +143,15 @@ export const assets: Asset[] = [
     exchange: 'DFM',
     currency: 'AED',
     fiatUrl: 'https://www.dfm.ae/the-exchange/market-information/company/EMIRATESNBD/trading/trading-summary',
-    currentPrice: 30.2,
+    currentPrice: 30.46,
     preMarch1Price: 35.00,
-    drawdownPct: -13.7,
+    drawdownPct: -13.0,
     covidDrawdownPct: -42.1,
     sparklineData: [
       29.50, 30.00, 30.80, 31.40, 31.80, 32.50, 33.00, 33.50, 34.00, 34.50,
       34.80, 35.00, 35.20, 34.80, 35.10, 35.00, 34.90, 35.00,
       31.00, 28.50, 29.50, 28.00, 27.50, 28.20, 27.30, 27.00, 26.80,
-      27.10, 26.70, 26.60, 26.55, 26.52, 26.50, 26.50, 30.2
+      27.10, 26.70, 26.60, 26.55, 26.52, 26.50, 26.50, 30.46
     ],
     pe: 6.2,
     marketCapB: 75.0,
@@ -170,15 +170,15 @@ export const assets: Asset[] = [
     exchange: 'DFM',
     currency: 'AED',
     fiatUrl: 'https://www.dfm.ae/the-exchange/market-information/company/EMAARDEV/trading/trading-summary',
-    currentPrice: 15.3,
+    currentPrice: 15.56,
     preMarch1Price: 20.70,
-    drawdownPct: -26.1,
+    drawdownPct: -24.8,
     covidDrawdownPct: -67.4,
     sparklineData: [
       14.50, 15.00, 15.60, 16.20, 16.80, 17.30, 17.90, 18.50, 19.00, 19.50,
       19.90, 20.20, 20.50, 20.65, 20.70, 20.60, 20.50, 20.70,
       18.00, 15.80, 14.50, 15.20, 14.00, 13.60, 14.10, 13.50, 13.80,
-      13.40, 13.55, 13.35, 13.40, 13.32, 13.30, 13.30, 15.3
+      13.40, 13.55, 13.35, 13.40, 13.32, 13.30, 13.30, 15.56
     ],
     pe: 4.5,
     marketCapB: 53.0,
@@ -224,15 +224,15 @@ export const assets: Asset[] = [
     exchange: 'ADX',
     currency: 'AED',
     fiatUrl: 'https://www.adx.ae/main-market/company-profile/overview?symbols=ADNOCDIST',
-    currentPrice: 3.77,
+    currentPrice: 3.78,
     preMarch1Price: 4.10,
-    drawdownPct: -8.0,
+    drawdownPct: -7.8,
     covidDrawdownPct: -31.5,
     sparklineData: [
       3.95, 3.96, 3.98, 3.97, 4.00, 3.99, 4.01, 4.02, 4.03, 4.05,
       4.06, 4.07, 4.08, 4.09, 4.08, 4.09, 4.10, 4.10,
       4.02, 3.95, 3.88, 3.82, 3.76, 3.72, 3.68, 3.65, 3.62,
-      3.60, 3.58, 3.57, 3.56, 3.56, 3.55, 3.55, 3.77
+      3.60, 3.58, 3.57, 3.56, 3.56, 3.55, 3.55, 3.78
     ],
     pe: 15.2,
     marketCapB: 40.0,
@@ -251,15 +251,15 @@ export const assets: Asset[] = [
     exchange: 'ADX',
     currency: 'AED',
     fiatUrl: 'https://www.adx.ae/main-market/company-profile/overview?symbols=FAB',
-    currentPrice: 13.48,
+    currentPrice: 18,
     preMarch1Price: 45.00,
-    drawdownPct: -70.0,
+    drawdownPct: -60.0,
     covidDrawdownPct: -38.4,
     sparklineData: [
       41.00, 41.30, 41.60, 41.90, 42.20, 42.50, 42.80, 43.10, 43.40, 43.70,
       44.00, 44.20, 44.40, 44.60, 44.75, 44.85, 44.95, 45.00,
       43.80, 42.60, 41.50, 40.80, 40.30, 40.00, 39.80, 39.65, 39.55,
-      39.50, 39.45, 39.42, 39.38, 39.35, 39.32, 39.30, 13.48
+      39.50, 39.45, 39.42, 39.38, 39.35, 39.32, 39.30, 18
     ],
     pe: 8.4,
     marketCapB: 192.0,
@@ -305,15 +305,15 @@ export const assets: Asset[] = [
     exchange: 'DFM',
     currency: 'AED',
     fiatUrl: 'https://www.dfm.ae/the-exchange/market-information/company/AIRARABIA/trading/trading-summary',
-    currentPrice: 5.19,
+    currentPrice: 5.25,
     preMarch1Price: 5.50,
-    drawdownPct: -5.6,
+    drawdownPct: -4.5,
     covidDrawdownPct: -55.2,
     sparklineData: [
       4.90, 4.98, 5.05, 5.12, 5.18, 5.25, 5.30, 5.35, 5.40, 5.42,
       5.45, 5.48, 5.50, 5.48, 5.45, 5.50, 5.48, 5.50,
       4.90, 4.50, 4.20, 4.00, 4.40, 4.60, 4.35, 4.20, 4.30,
-      4.15, 4.25, 4.30, 4.28, 4.32, 4.30, 4.31, 5.19
+      4.15, 4.25, 4.30, 4.28, 4.32, 4.30, 4.31, 5.25
     ],
     pe: 7.5,
     marketCapB: 19.0,
@@ -332,15 +332,15 @@ export const assets: Asset[] = [
     exchange: 'DFM',
     currency: 'AED',
     fiatUrl: 'https://www.dfm.ae/the-exchange/market-information/company/SALIK/trading/trading-summary',
-    currentPrice: 5.54,
+    currentPrice: 5.69,
     preMarch1Price: 5.90,
-    drawdownPct: -6.1,
+    drawdownPct: -3.6,
     covidDrawdownPct: -25.0,
     sparklineData: [
       5.85, 5.86, 5.87, 5.88, 5.87, 5.88, 5.89, 5.88, 5.89, 5.90,
       5.89, 5.90, 5.90, 5.89, 5.90, 5.90, 5.89, 5.90,
       5.80, 5.72, 5.65, 5.58, 5.52, 5.48, 5.44, 5.40, 5.38,
-      5.36, 5.34, 5.32, 5.30, 5.29, 5.28, 5.28, 5.54
+      5.36, 5.34, 5.32, 5.30, 5.29, 5.28, 5.28, 5.69
     ],
     pe: 18.5,
     marketCapB: 38.0,
@@ -359,15 +359,15 @@ export const assets: Asset[] = [
     exchange: 'DFM',
     currency: 'AED',
     fiatUrl: 'https://www.dfm.ae/the-exchange/market-information/company/DIB/trading/trading-summary',
-    currentPrice: 7.17,
+    currentPrice: 7.33,
     preMarch1Price: 8.50,
-    drawdownPct: -15.6,
+    drawdownPct: -13.8,
     covidDrawdownPct: -48.6,
     sparklineData: [
       7.70, 7.85, 7.75, 7.95, 8.05, 7.90, 8.10, 8.20, 8.30, 8.40,
       8.35, 8.50, 8.45, 8.48, 8.42, 8.50, 8.48, 8.50,
       8.10, 7.80, 7.60, 7.75, 7.50, 7.65, 7.45, 7.50, 7.42,
-      7.48, 7.44, 7.42, 7.43, 7.41, 7.40, 7.40, 7.17
+      7.48, 7.44, 7.42, 7.43, 7.41, 7.40, 7.40, 7.33
     ],
     pe: 6.8,
     marketCapB: 55.0,
@@ -413,15 +413,15 @@ export const assets: Asset[] = [
     exchange: 'ADX',
     currency: 'AED',
     fiatUrl: 'https://www.adx.ae/main-market/company-profile/overview?symbols=IHC',
-    currentPrice: 390.9,
+    currentPrice: 392.8,
     preMarch1Price: 450.00,
-    drawdownPct: -13.1,
+    drawdownPct: -12.7,
     covidDrawdownPct: -18.0,
     sparklineData: [
       420, 430, 415, 440, 425, 445, 435, 455, 440, 448,
       460, 445, 455, 450, 440, 455, 445, 450,
       420, 400, 415, 390, 405, 385, 395, 380, 392,
-      385, 395, 388, 393, 390, 392, 391, 390.9
+      385, 395, 388, 393, 390, 392, 391, 392.8
     ],
     pe: 22.4,
     marketCapB: 730.0,
@@ -440,15 +440,15 @@ export const assets: Asset[] = [
     exchange: 'ADX',
     currency: 'AED',
     fiatUrl: 'https://www.adx.ae/main-market/company-profile/overview?symbols=RAKPROP',
-    currentPrice: 1.01,
+    currentPrice: 1.06,
     preMarch1Price: 1.80,
-    drawdownPct: -43.9,
+    drawdownPct: -41.1,
     covidDrawdownPct: -58.3,
     sparklineData: [
       1.55, 1.60, 1.58, 1.65, 1.62, 1.70, 1.68, 1.75, 1.72, 1.78,
       1.80, 1.76, 1.82, 1.78, 1.80, 1.76, 1.80, 1.80,
       1.60, 1.45, 1.50, 1.38, 1.42, 1.35, 1.38, 1.34, 1.36,
-      1.33, 1.35, 1.34, 1.33, 1.34, 1.33, 1.33, 1.01
+      1.33, 1.35, 1.34, 1.33, 1.34, 1.33, 1.33, 1.06
     ],
     pe: 3.8,
     marketCapB: 3.0,
@@ -467,15 +467,15 @@ export const assets: Asset[] = [
     exchange: 'ADX',
     currency: 'AED',
     fiatUrl: 'https://www.adx.ae/main-market/company-profile/overview?symbols=MULTIPLY',
-    currentPrice: 2.92,
+    currentPrice: 2.83,
     preMarch1Price: 3.50,
-    drawdownPct: -16.6,
+    drawdownPct: -19.1,
     covidDrawdownPct: -22.0,
     sparklineData: [
       3.15, 3.25, 3.18, 3.30, 3.22, 3.38, 3.30, 3.42, 3.35, 3.45,
       3.50, 3.42, 3.48, 3.50, 3.45, 3.52, 3.48, 3.50,
       3.25, 3.10, 3.20, 3.00, 2.95, 3.05, 2.90, 2.95, 2.88,
-      2.92, 2.86, 2.88, 2.85, 2.84, 2.83, 2.83, 2.92
+      2.92, 2.86, 2.88, 2.85, 2.84, 2.83, 2.83, 2.83
     ],
     pe: 8.9,
     marketCapB: 15.0,
